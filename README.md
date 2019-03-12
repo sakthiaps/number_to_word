@@ -36,5 +36,5 @@ Steps:
 Running Command:
 1. loading the file using load command
   ```load"file_path"```
-2. run the  ConvertPhoneNumberToWord.new.word_arrangement_combinations(6686787825)
+2. run the  ```ConvertPhoneNumberToWord.new.word_arrangement_combinations(6686787825)```
 3. You can run with different solution, replace the given number to your input number when run with different number
