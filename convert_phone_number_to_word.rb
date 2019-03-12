@@ -49,14 +49,14 @@ class ConvertPhoneNumberToWord
       next if (matrix_1 = digit_to_words[0..index]).length < 3
       next if (matrix_2 = digit_to_words[index + 1..total_number]).length < 3
 
-      combination_of_words_1 = matrix_1.shift.product(*matrix_1).map(&:join) # Get product of arrays #get_combination(matrix_1, dictionary)#
+      combination_of_words_1 = matrix_1.shift.product(*matrix_1).map(&:join)
       next if combination_of_words_1.nil?
 
       combination_of_words_2 = matrix_2.shift.product(*matrix_2).map(&:join)
       next if combination_of_words_2.nil?
 
       # Compare and storing the matching words in the dictionary
-      results[index] = [(combination_of_words_1 & dictionary_words[index+1]), (combination_of_words_2 & dictionary_words[total_number - index])] # get common values from arrays
+      results[index] = [(combination_of_words_1 & dictionary_words[index+1]), (combination_of_words_2 & dictionary_words[total_number - index])] # Fetch common values from both arrays
     end
 
     #Implement [3], [3], [4] words probablity
@@ -69,7 +69,7 @@ class ConvertPhoneNumberToWord
                    (m_3.shift.product(*m_3).map(&:join) & dictionary_words[4])
                  ]
 
-    #arrange words like we need as a output
+    #Arrange words like we need as a output
     compination_of_words = []
     results.each do |key, combinataions|
       next if combinataions.first.nil? || combinataions.last.nil?
@@ -81,10 +81,10 @@ class ConvertPhoneNumberToWord
     end
 
     # for given numbers
-    compination_of_words << (digit_to_words.shift.product(*digit_to_words).map(&:join) & dictionary_words[10]).join(", ") # matche with all character
+    compination_of_words << (digit_to_words.shift.product(*digit_to_words).map(&:join) & dictionary_words[10]).join(", ") 
     end_time = Time.now
     puts "Time #{end_time.to_f - start_time.to_f}"
-    compination_of_words
+    compination_of_words # Return combination of words
   end
 
 end
